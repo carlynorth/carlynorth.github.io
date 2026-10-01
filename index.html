@@ -1,1 +1,835 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <meta
+    name="description"
+    content="The portfolio of Carly North, a marketing and supply chain student and UGC strategy lead."
+  >
+
+  <title>Carly North | Marketing & UGC Strategy</title>
+
+  <style>
+    :root {
+      --ink: #11110f;
+      --paper: #f2ede4;
+      --card: #ffffff;
+      --beige: #d8c8b0;
+      --sand: #b8a58a;
+      --muted: #69645d;
+      --line: #d5ccbf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system,
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.55;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    /* Navigation */
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(247, 244, 239, 0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .navin {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      font-size: 1.18rem;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--sand);
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 650;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: white;
+    }
+
+    /* Hero section */
+
+    .hero {
+      min-height: 650px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 70px;
+      align-items: center;
+      padding: 80px 0 70px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      font-weight: 850;
+      color: #756650;
+      margin: 0 0 18px;
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 6.6rem);
+      line-height: 0.89;
+      letter-spacing: -0.07em;
+      margin: 0;
+      max-width: 900px;
+    }
+
+    .stroke {
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--ink);
+    }
+
+    .statement {
+      font-family: Georgia, serif;
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      line-height: 1.45;
+      max-width: 720px;
+      margin: 32px 0;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 800;
+      border: 1px solid var(--ink);
+      padding: 13px 19px;
+      border-radius: 4px;
+      background: var(--ink);
+      color: white;
+    }
+
+    .button.alt {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    /* Headshot card */
+
+    .hero-card {
+      background: var(--beige);
+      color: var(--ink);
+      padding: 12px 12px 28px;
+      border-radius: 3px;
+      transform: rotate(1.5deg);
+      box-shadow: 16px 16px 0 var(--ink);
+    }
+
+    .headshot {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 28%;
+      filter: saturate(0.82) contrast(1.03);
+      border: 1px solid rgba(17, 17, 15, 0.18);
+    }
+
+    .hero-card p {
+      margin-left: 18px;
+      margin-right: 18px;
+    }
+
+    .hero-card .school {
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-top: 24px;
+    }
+
+    .hero-card .degree {
+      margin-top: 10px;
+      color: #4b4339;
+    }
+
+    .numbers {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 25px 18px 0;
+      padding-top: 21px;
+      border-top: 1px solid rgba(17, 17, 15, 0.35);
+    }
+
+    .num strong {
+      display: block;
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+
+    .num span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* General sections */
+
+    section {
+      padding: 95px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 40px;
+      align-items: end;
+      margin-bottom: 42px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      letter-spacing: -0.055em;
+      line-height: 0.95;
+      margin: 0;
+    }
+
+    .section-head p {
+      max-width: 430px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* About section */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 80px;
+    }
+
+    .about-title {
+      font: italic 2rem Georgia, serif;
+      margin: 0;
+    }
+
+    .about-copy {
+      font-size: 1.15rem;
+    }
+
+    .about-copy p:first-child {
+      margin-top: 0;
+    }
+
+    .mini {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .mini span {
+      padding: 8px 12px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 0.84rem;
+      font-weight: 750;
+    }
+
+    /* Skills */
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .skill {
+      min-height: 165px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.2s;
+    }
+
+    .skill:hover {
+      transform: translateY(-4px);
+      border-color: var(--ink);
+      background: #faf8f4;
+    }
+
+    .skill b {
+      font-size: 1.14rem;
+    }
+
+    .skill span {
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .skill .index {
+      font: 700 0.78rem Georgia, serif;
+      color: #8b795f;
+    }
+
+    /* Projects */
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+    }
+
+    .project {
+      background: var(--ink);
+      color: white;
+      padding: 34px;
+      min-height: 390px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project:nth-child(1) {
+      grid-column: span 7;
+    }
+
+    .project:nth-child(2) {
+      grid-column: span 5;
+      background: #b9aa95;
+      color: var(--ink);
+    }
+
+    .project:nth-child(3) {
+      grid-column: span 12;
+      background: #302e2a;
+    }
+
+    .tag {
+      align-self: flex-start;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .project h3 {
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      letter-spacing: -0.045em;
+      line-height: 1;
+      margin: 30px 0 14px;
+      max-width: 600px;
+    }
+
+    .project p {
+      color: #d7d7d7;
+      max-width: 640px;
+      margin: 0;
+    }
+
+    .project:nth-child(2) p {
+      color: #3f3931;
+    }
+
+    .result {
+      margin-top: auto;
+      padding-top: 35px;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .project a {
+      margin-top: 14px;
+      display: inline-block;
+      color: #e8d8bd;
+      font-weight: 800;
+      text-underline-offset: 4px;
+      width: max-content;
+    }
+
+    .project:nth-child(2) a {
+      color: var(--ink);
+    }
+
+    .orb {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      right: -55px;
+      top: -55px;
+      border: 30px solid rgba(255, 255, 255, 0.12);
+    }
+
+    /* Footer */
+
+    footer {
+      background: var(--ink);
+      color: white;
+      padding: 65px 0;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+    }
+
+    .foot h2 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      margin: 0;
+      letter-spacing: -0.05em;
+    }
+
+    .foot p {
+      margin: 12px 0 0;
+      color: #d9d1c5;
+    }
+
+    .foot a {
+      background: var(--beige);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 900;
+      padding: 14px 20px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* Scroll animation */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 820px) {
+      nav a:not(.pill) {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 70px 0 90px;
+      }
+
+      .hero-card {
+        max-width: 430px;
+        transform: none;
+      }
+
+      .skills {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .project:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .section-head,
+      .foot {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    /* Mobile */
+
+    @media (max-width: 540px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .navin {
+        height: 64px;
+      }
+
+      h1 {
+        font-size: 3.3rem;
+      }
+
+      .skills {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card {
+        margin-right: 10px;
+        box-shadow: 10px 10px 0 var(--ink);
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .project {
+        padding: 26px;
+        min-height: 360px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="wrap navin">
+      <a class="brand" href="#top">CN<span>.</span></a>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+
+        <a
+          class="pill"
+          href="mailto:cln76@scarletmail.rutgers.edu"
+        >
+          Let's connect
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div>
+        <p class="eyebrow">Marketing strategist · Creator economy</p>
+
+        <h1>
+          CARLY<br>
+          <span class="stroke">NORTH</span>
+        </h1>
+
+        <p class="statement">
+          <strong>
+            I turn internet culture, creator insights, and campaign data
+            into UGC strategies people actually want to watch.
+          </strong>
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#projects">See my work</a>
+          <a class="button alt" href="#skills">Explore skills</a>
+        </div>
+      </div>
+
+      <aside
+        class="hero-card"
+        aria-label="Carly North headshot, education, and experience highlights"
+      >
+        <img
+          class="headshot"
+          src="headshot.jpg"
+          alt="Professional headshot of Carly North"
+        >
+
+        <p class="school">Rutgers Business School</p>
+
+        <p class="degree">
+          B.S. Marketing + Supply Chain Management<br>
+          GPA: 3.7
+        </p>
+
+        <div class="numbers">
+          <div class="num">
+            <strong>20+</strong>
+            <span>campaigns supported</span>
+          </div>
+
+          <div class="num">
+            <strong>25M</strong>
+            <span>views in 3 weeks</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="wrap about-grid reveal">
+        <h2 class="about-title">Strategy with a creator's instincts.</h2>
+
+        <div class="about-copy">
+          <p>
+            I'm a Rutgers Business School student and Strategy Lead at
+            Playkit, where I help creator campaigns move from a good idea
+            in a meeting to content that is actually posted, measured,
+            and improved.
+          </p>
+
+          <p>
+            I started in UGC by answering a TikTok DM from my personal
+            account. Now I build campaign playbooks, brief creators, spot
+            repeatable formats, and use performance data to decide what a
+            brand should do next.
+          </p>
+
+          <div class="mini">
+            <span>Rutgers University</span>
+            <span>Phi Sigma Sigma PR</span>
+            <span>Creator economy</span>
+            <span>New Jersey</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>What I bring.</h2>
+
+          <p>
+            A mix of creative judgment, analytical thinking, and the
+            follow-through needed to get campaigns over the finish line.
+          </p>
+        </div>
+
+        <div class="skills reveal">
+          <article class="skill">
+            <span class="index">01</span>
+            <b>UGC Strategy</b>
+            <span>Hooks, formats, creative testing, playbooks</span>
+          </article>
+
+          <article class="skill">
+            <span class="index">02</span>
+            <b>Campaign Management</b>
+            <span>Creator briefs, feedback, execution, iteration</span>
+          </article>
+
+          <article class="skill">
+            <span class="index">03</span>
+            <b>Performance Analysis</b>
+            <span>Views, engagement rate, CTR, CPA, retention</span>
+          </article>
+
+          <article class="skill">
+            <span class="index">04</span>
+            <b>Short-Form Content</b>
+            <span>TikTok, Instagram Reels, YouTube Shorts</span>
+          </article>
+
+          <article class="skill">
+            <span class="index">05</span>
+            <b>Brand & Social</b>
+            <span>Positioning, copywriting, community insights</span>
+          </article>
+
+          <article class="skill">
+            <span class="index">06</span>
+            <b>Cross-Functional Work</b>
+            <span>
+              Creator communication, client-facing strategy, team leadership
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2>Selected work.</h2>
+
+          <p>
+            Campaign systems and creative strategies built to make
+            content better, faster, and more repeatable.
+          </p>
+        </div>
+
+        <div class="project-grid reveal">
+          <article class="project">
+            <div class="orb"></div>
+
+            <span class="tag">UGC campaign strategy</span>
+
+            <h3>25 million views in three weeks</h3>
+
+            <p>
+              Helped shape and scale a high-volume UGC campaign by
+              identifying the formats worth repeating, tightening creator
+              direction, and keeping creative decisions connected to
+              performance.
+            </p>
+
+            <div class="result">Result: 25M+ organic views</div>
+
+            <a
+              href="mailto:cln76@scarletmail.rutgers.edu?subject=UGC%20Campaign%20Case%20Study"
+            >
+              Request the case study
+            </a>
+          </article>
+
+          <article class="project">
+            <div class="orb"></div>
+
+            <span class="tag">Content operations</span>
+
+            <h3>Campaign Execution System</h3>
+
+            <p>
+              Created a weekly process that turns Monday strategy calls
+              into creator-ready concepts by midweek, solving the gap
+              between deciding what to test and getting it posted.
+            </p>
+
+            <div class="result">Built for 20+ active campaigns</div>
+
+            <a
+              href="mailto:cln76@scarletmail.rutgers.edu?subject=Campaign%20Execution%20Project"
+            >
+              Ask about the process
+            </a>
+          </article>
+
+          <article class="project">
+            <div class="orb"></div>
+
+            <span class="tag">Research + optimization</span>
+
+            <h3>Talking-Head Creative Audit</h3>
+
+            <p>
+              Audited creator performance across campaigns to find who was
+              best positioned to test a higher-trust talking-head format.
+              Recommendations balanced past view averages, consistency,
+              engagement, and coaching upside, then translated the
+              findings into individualized creator briefs.
+            </p>
+
+            <div class="result">
+              From raw creator data to a testable rollout plan
+            </div>
+
+            <a
+              href="mailto:cln76@scarletmail.rutgers.edu?subject=Talking-Head%20Audit"
+            >
+              Request a project walkthrough
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <h2>
+          Let's make something<br>
+          people stop for.
+        </h2>
+
+        <p>
+          Open to marketing, creator strategy, and client-facing
+          opportunities.
+        </p>
+      </div>
+
+      <a href="mailto:cln76@scarletmail.rutgers.edu">
+        Email Carly
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) =>
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        }),
+      { threshold: 0.12 }
+    );
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => observer.observe(element));
+  </script>
+</body>
+</html>
